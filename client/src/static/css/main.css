@@ -1,0 +1,240 @@
+@-webkit-keyframes breathe{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  70% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+  }
+  100% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+  }
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.light-text{
+    color: #6EA5CF;
+    text-shadow: 0 0 5px rgba(132,202,255,1);
+}
+
+.logo{
+    margin: 20px;
+    float: left;
+}
+
+.logo,
+.logo_front{
+    position: relative;
+    width: 106px;
+    height: 34px;
+    display: inline-block;
+    background: url(/static/img/logo.png) 0 0 no-repeat;
+}
+
+.logo_front{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: 0 -36px;
+
+    -webkit-filter: drop-shadow(0 0 15px rgba(135, 203, 255, 1));
+    -moz-filter: drop-shadow(0 0 15px rgba(135, 203, 255, 1));
+    -ms-filter: drop-shadow(0 0 15px rgba(135, 203, 255, 1));
+    -o-filter: drop-shadow(0 0 15px rgba(135, 203, 255, 1));
+    filter: drop-shadow(0 0 15px rgba(135, 203, 255, 1));
+
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: breathe;
+    -webkit-animation-duration: 3600ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+
+.slogon_wrap {
+  width: 600px;
+  /*height: 100%;*/
+  /*margin: 0 auto 0;*/
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  background: #000;
+  position: relative;
+  margin-left: 200px;
+
+  -moz-transform: scale(.8);
+  -ms-transform: scale(.8);
+  -webkit-transform: scale(.8);
+  transform: scale(.8);
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.slogon{
+  position: absolute;
+  float: left;
+  margin: 0 60px;
+  display: block;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  background: #5a99d4;
+  cursor: default;
+  font-size: 20px;
+  box-shadow: 0 0 0 0 rgba(90, 153, 212, 0.5);
+  -webkit-animation: pulse 1.5s infinite;
+}
+
+.slogon.s1{
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    top: 10px;
+    left: 30px;
+}
+
+.slogon.s2{
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    top: 0;
+    left: 350px;
+    line-height: 1.5;
+    padding-top: 30px;
+}
+
+.slogon.s3{
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    top: 40px;
+    left: 200px;
+}
+
+.camre{
+    width: 918px;
+    height: 419px;
+    background: url(/static/img/camre.png);
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
+.camre img{
+    position: absolute;
+    top: 10px;
+    left: 10px
+}
+
+.camre .time{
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+    font-size: 16px;
+}
+
+.ctrl_wrap{
+    position: absolute;
+    bottom: 250px;
+    right: 300px;
+}
+
+.ctrl_text,
+.ctrl{
+    position: absolute;
+    width: 135px;
+    height: 90px;
+    outline: none;
+    background: url(/static/img/ctrl.png) no-repeat;
+}
+
+.ctrl_text{
+    width: 48px;
+    height: 26px;
+    background-position: -25px -23px;
+    top: 100px;
+    left: 105px;
+}
+
+.ctrl.top{
+    background-position: 0 -76px;
+    top: 0;
+    left: 70px;
+}
+
+.ctrl.top:active{
+    background-position: 0 -603px;
+}
+
+.ctrl.right{
+    background-position: 0 -280px;
+    top: 70px;
+    left: 140px;
+}
+
+.ctrl.right:active{
+    background-position: 0 -717px;
+}
+
+.ctrl.bottom{
+    background-position: 0 -166px;
+    top: 125px;
+    left: 70px;
+}
+
+.ctrl.bottom:active{
+    background-position: 0 -476px;
+}
+
+.ctrl.left{
+    background-position: 0 -375px;
+    top: 70px;
+    left: -15px;
+}
+
+.ctrl.left:active{
+    background-position: 0 -838px;
+}
+
+.audio-panel{
+    width: 900px;
+    height: 100px;
+    background: rgba(0,0,0,.2);
+    left: 100px;
+    position: absolute;
+    bottom: 90px;
+}
+
+.copyright{
+    font-size: 14px;
+    bottom: 10px;
+    position: absolute;
+    right: 20px;
+}

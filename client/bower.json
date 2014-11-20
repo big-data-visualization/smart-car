@@ -1,0 +1,9 @@
+{
+  "name": "smart-car",
+  "version": "0.0.0",
+  "dependencies": {
+    "font-awesome": "~4.2.0",
+    "d3": "~3.4.13",
+    "audio-waveform": "~0.1.0"
+  }
+}

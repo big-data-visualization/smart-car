@@ -1,0 +1,28 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    background: #000;
+    height: 100%;
+}
+
+body{
+    font: 12px/1.5 'Helvetica Neue', 'Helvetica,Arial', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+    background: transparent;
+    height: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: #444;
+}
+
+a:hover{
+    text-decoration: none;
+}
