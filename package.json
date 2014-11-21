@@ -18,7 +18,7 @@
     "cylon-gpio": "^0.19.0",
     "cylon-i2c": "^0.16.1",
     "express": "^4.10.1",
-    "johnny-five": "0.8.26",
+    "johnny-five": "^0.8.26",
     "keypress": "^0.2.1",
     "koa": "^0.13.0",
     "koa-hbs": "^0.5.0",

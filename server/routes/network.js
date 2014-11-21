@@ -1,7 +1,23 @@
 module.exports = function(io) {
+
+  var hardwareConf = require('./config')('hardware')
+  var motors = require('../models/motors')
+
   io.on('connection', function(socket) {
 
     socket.monitor('connected', Date.now())
+
+    /**
+     * On car driving control
+     * @param  {[type]} data [description]
+     * @return {[type]}      [description]
+     */
+    socket.on('hardware:keypress', function(data) {
+      var key = data.key
+      console.log(key)
+      motors(key)
+    })
+
 
     var session = global.session
     
@@ -10,44 +26,45 @@ module.exports = function(io) {
     var roomid = session.roomid || 100
 
     socket.emit('connected', {
-      user: roomid
+      roomid: roomid
     })
 
-    socket.on('client', function(data) {
-      socket.monitor('client', data)
+    /*var binaryServer = require('binaryjs').BinaryServer
+    var wav = require('wav')
+    var fileWriter = null
+
+    client.on('stream', function(stream, meta) {
+      var fileWriter = new wav.FileWriter('demo.wav', {
+        channels: 1,
+        sampleRate: 48000,
+        bitDepth: 16
+      })
+      stream.pipe(fileWriter)
+      stream.on('end', function() {
+        fileWriter.end()
+      })
     })
 
-
-    var testData = function() {
-      var ret = []
-      var tmp = {}
-      for(var i = 0, n = 10; i < n; i++) {
-
-        tmp = {
-          userinfo: {
-            id: "xx",
-            nickname: "xXx",
-            email: "",
-            hi: "",
-            avatar: "",
-            jointime: "",
-            score: ""
-          },
-          gameinfo: {
-            health: 100 * Math.random(),
-            rotation: 1,
-            pos: [500 * Math.random(), 500 * Math.random()],
-            alive: Math.random() > 0.5
-          }
-        }
-        ret.push(tmp)
+    client.on('close', function() {
+      if (fileWriter != null) {
+        fileWriter.end()
       }
+    })
+    */
 
-      return ret
-    }
 
-    setInterval(function() {
-        socket.emit('room:1', testData())
-    }, 30)
+    var fs = require('fs')
+    var ws = fs.createWriteStream('audio.wav')
+
+    var stop = false
+
+    socket.on('audio', function(data) {
+      !stop && ws.write(JSON.stringify(data.data))
+    })
+
+    setTimeout(function() {
+      stop = true
+      ws.end()
+    }, 3000)
   })
 }
