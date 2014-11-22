@@ -13,6 +13,11 @@
         <a class="logo_front" href="/"></a>
     </div>
 
+    <div style=" position: absolute; top: 0; left: 100px">
+        <input id="testShoutInput" type="text" value='{"type": "f", "content": "/home/t1/smart-car/data/cry.wav"}'>
+        <button id="testShoutBtn">PLAY</button>
+    </div>
+
     <div class="slogon_wrap">
         <div class="slogon s1">Arduino</div>
         <div class="slogon s2">Raspberry Pi</div>
@@ -42,6 +47,8 @@
 <!-- build:js /static/js/all.js -->
 <script src="../static/bower_components/d3/d3.min.js"></script>
 <script src="../static/bower_components/audio-waveform/dist/audio_waveform.min.js"></script>
+
+<script src="../static/js/joystick.js"></script>
 <script src="../static/js/main.js"></script>
 <script src="../static/js/io.js"></script>
 <!-- endbuild -->

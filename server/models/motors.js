@@ -1,5 +1,5 @@
 var five = require('johnny-five')
-var conf = require('./config')('hardware')
+var conf = require('../config')('hardware')
 var motors = {
   a: new five.Motor(conf.motors.pins['a'])
   , b: new five.Motor(conf.motors.pins['b'])
