@@ -2,7 +2,8 @@
 while getopts ":f:t:" opt; do
     case $opt in
         t)
-            espeak -vzh "$OPTARG"
+            #espeak -vzh "$OPTARG"
+	    ./iflytekTTS "$OPTARG" tmp.wav xiaoyan && aplay tmp.wav
             exit 1
             ;;
         f)

@@ -22,12 +22,14 @@
 
     document.querySelector("#testShoutBtn").addEventListener("click", function(e) {
         var data
-
+/*
         try{
             data = JSON.parse(document.querySelector("#testShoutInput").value)
         }
-        catch(e){}
-        data && socket.emit("shout", data)
+*/
+	data = document.querySelector("#testShoutInput").value.trim()
+        //catch(e){}
+        data && socket.emit("shout", {type: "t", content: data})
     })
 }(window, io)
 
