@@ -12,28 +12,28 @@ module.exports = function(io) {
 
     socket.monitor('connected', Date.now())
 
+    var request = null
+
     socket.on('shout', function(data) {
 
+    	var url = 'http://api.mrtimo.com/Simsimi.ashx?parm=' + encodeURIComponent(data.content)
 
-	var txt = encodeURIComponent(data.content)
+      // canel the last request
+      request && request.destroy()
 
-	var url = 'http://api.mrtimo.com/Simsimi.ashx?parm=' + txt;
-
-	http.get(url, function(res) {
-    		var text = '';
-
+    	request = http.get(url, function(res) {
+    		var text = ''
     		res.on('data', function(chunk) {
-        		text += chunk;
+      		text += chunk
     		})
     		res.on('end', function() {
-        		console.log(text)
-			shout.play(text)
+      		console.log(text)
+          shout.play({
+            type: "t",
+            content: text
+          })
     		})
-	})
-
-
-	
-      // shout.play(data)
+    	})
     })
 
     // audio.on('data', function(data) {
