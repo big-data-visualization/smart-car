@@ -1,11 +1,21 @@
 module.exports = function(io) {
 
-  var hardwareConf = require('./config')('hardware')
-  var motors = require('../models/motors')
+  var hardwareConf = require('../config')('hardware')
+  // var motors = require('../models/motors')
+  
+  // var audio = require('../models/audio')
+  var shout = require('../models/shout')
 
   io.on('connection', function(socket) {
 
     socket.monitor('connected', Date.now())
+
+    socket.on('shout', function(data) {
+      shout.play(data)
+    })
+
+    // audio.on('data', function(data) {
+    // })
 
     /**
      * On car driving control
@@ -15,11 +25,11 @@ module.exports = function(io) {
     socket.on('hardware:keypress', function(data) {
       var key = data.key
       console.log(key)
-      motors(key)
+      // motors(key)
     })
 
 
-    var session = global.session
+/*    var session = global.session
     
     if(!session) return
 
@@ -27,7 +37,7 @@ module.exports = function(io) {
 
     socket.emit('connected', {
       roomid: roomid
-    })
+    })*/
 
     /*var binaryServer = require('binaryjs').BinaryServer
     var wav = require('wav')
@@ -53,7 +63,7 @@ module.exports = function(io) {
     */
 
 
-    var fs = require('fs')
+/*    var fs = require('fs')
     var ws = fs.createWriteStream('audio.wav')
 
     var stop = false
@@ -65,6 +75,6 @@ module.exports = function(io) {
     setTimeout(function() {
       stop = true
       ws.end()
-    }, 3000)
+    }, 3000)*/
   })
 }

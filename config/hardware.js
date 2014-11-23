@@ -1,6 +1,6 @@
 var path = require('path')
 
-module.exports = {
+var development = {
   motors: {
     'pins': {
         'a': [3, 4]
@@ -8,4 +8,15 @@ module.exports = {
     }
     , 'speed': 100
   }
+  , audio: {
+    'cmd': 'cd /home/t1/yuyin/linuxEASR-new/ && ./linuxEASR cfg.txt'
+    // 'cmd': '/home/t1/yuyin/linuxEASR-new/xxx'
+  }
+  , shout: {
+    'cmd': '/bin/sh ' + path.join(__dirname, '../service/shout.sh')
+  }
+}
+
+module.exports = {
+  development: development
 }

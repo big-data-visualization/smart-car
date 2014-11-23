@@ -164,6 +164,7 @@ html, body{
     position: absolute;
     bottom: 250px;
     right: 300px;
+    z-index: 9;
 }
 
 .ctrl_text,

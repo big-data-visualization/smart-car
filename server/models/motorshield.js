@@ -1,4 +1,4 @@
-var conf = require('./config')('hardware')
+var conf = require('../config')('hardware')
 
 var motors = {
   a: new five.Motor([3, 4])

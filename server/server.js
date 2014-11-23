@@ -11,8 +11,8 @@ var app = koa()
 var conf = global.conf = require('./config')('server')
 
 // Middlewire: logger
-var logger = require('koa-logger')
-app.use(logger())
+// var logger = require('koa-logger')
+// app.use(logger())
 
 // Middlewire: session
 var session = require('koa-session')
@@ -43,8 +43,11 @@ var board = require('./models/board')
 
 // board -> network
 board.on('ready', function() {
+  // When board on ready, share the status.
+  global.board = board
   network(io)
 })
+//network(io)
 
 server.listen(conf.port, function() {
   console.log("web server: listening on", conf.port)
