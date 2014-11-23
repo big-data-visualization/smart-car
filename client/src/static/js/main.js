@@ -18,18 +18,21 @@
         }*/
     })
 
-
-
-    document.querySelector("#testShoutBtn").addEventListener("click", function(e) {
+    document.querySelector("#testShout").addEventListener("submit", function(e) {
+        e.preventDefault()
         var data
 /*
         try{
             data = JSON.parse(document.querySelector("#testShoutInput").value)
         }
 */
-	data = document.querySelector("#testShoutInput").value.trim()
+        data = document.querySelector("#testShoutInput").value.trim()
         //catch(e){}
         data && socket.emit("shout", {type: "t", content: data})
+    })
+
+    document.querySelector("#testShoutBtn").addEventListener("click", function(e) {
+        
     })
 }(window, io)
 
