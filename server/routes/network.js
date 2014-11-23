@@ -1,3 +1,5 @@
+var http = require('http')
+
 module.exports = function(io) {
 
   var hardwareConf = require('../config')('hardware')
@@ -11,7 +13,27 @@ module.exports = function(io) {
     socket.monitor('connected', Date.now())
 
     socket.on('shout', function(data) {
-      shout.play(data)
+
+
+	var txt = encodeURIComponent(data.content)
+
+	var url = 'http://api.mrtimo.com/Simsimi.ashx?parm=' + txt;
+
+	http.get(url, function(res) {
+    		var text = '';
+
+    		res.on('data', function(chunk) {
+        		text += chunk;
+    		})
+    		res.on('end', function() {
+        		console.log(text)
+			shout.play(text)
+    		})
+	})
+
+
+	
+      // shout.play(data)
     })
 
     // audio.on('data', function(data) {
