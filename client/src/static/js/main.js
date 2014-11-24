@@ -1,5 +1,14 @@
 !function(WIN, io) {
 
+    // active `active` for mobile
+    document.addEventListener('touchstart', function(){
+    }, false);
+
+    // init FastClick
+    FastClick && document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+    }, false);
+
     // Init & Share socket
     window.socket = io()
 
@@ -34,6 +43,22 @@
     document.querySelector("#testShoutBtn").addEventListener("click", function(e) {
         
     })
+
+
+
+    var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext("2d");
+    socket.on('camera', function(data) {
+        if(!data || !data.base64) return
+        var image = new Image();
+        console.log(data.base64)    
+        image.onload = function () { 
+            context.clearRect(0, 0, canvas.width, canvas.height); 
+            context.drawImage(image, 0, 0, canvas.width, canvas.height); 
+        }
+        image.src = 'data:image/png;base64,' + data.base64;
+    })
+    
 }(window, io)
 
 

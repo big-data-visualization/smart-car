@@ -18,6 +18,7 @@
     "cylon-i2c": "^0.16.1",
     "express": "^4.10.1",
     "johnny-five": "^0.8.26",
+    "serialport": "^1.4.6",
     "keypress": "^0.2.1",
     "koa": "^0.13.0",
     "koa-hbs": "^0.5.0",

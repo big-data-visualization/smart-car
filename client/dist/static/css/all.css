@@ -267,3 +267,11 @@ html, body{
     position: absolute;
     right: 20px;
 }
+
+
+
+@media only screen and (max-width: 640px)  {
+    html, body{
+        background: #f00 !important;
+    }
+}

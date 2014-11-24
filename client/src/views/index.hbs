@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
     <title>Smart car</title>
     <!-- build:css /static/css/all.css -->
     <link rel="stylesheet" href="../static/css/reset.css"/>
@@ -28,7 +29,8 @@
     </div>
 
     <div class="camre">
-        <img src="" alt="" width="898" height="399">
+        {{!-- <img src="" alt="" width="898" height="399"> --}}
+        <canvas id="myCanvas" style="width: 400px; height: 500px;"></canvas>
         <span class="time light-text">2014.11.19  20:02:03</span>
     </div>
 
@@ -48,6 +50,7 @@
 </body>
 <script src="/socket.io/socket.io.js"></script>
 <!-- build:js /static/js/all.js -->
+<script src="../static/bower_components/fastclick/lib/fastclick.js"></script>
 <script src="../static/bower_components/d3/d3.min.js"></script>
 <script src="../static/bower_components/audio-waveform/dist/audio_waveform.min.js"></script>
 

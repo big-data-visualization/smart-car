@@ -47,7 +47,8 @@ board.on('ready', function() {
   global.board = board
   network(io)
 })
-//network(io)
+
+// network(io)
 
 server.listen(conf.port, function() {
   console.log("web server: listening on", conf.port)
