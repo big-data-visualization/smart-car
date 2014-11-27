@@ -4,7 +4,7 @@ A hardware begin guide for Front-End developer, enjoy it!
 
 ![](https://raw.githubusercontent.com/big-data-visualization/smart-car/master/assets/photo.jpg)
 
-[![A hardware begin guide, enjoy it! part 1](https://img.youtube.com/vi/mbbNnGVcdi4/0.jpg)](https://www.youtube.com/watch?v=mbbNnGVcdi4 "A hardware begin guide, enjoy it! part 1")
+[![A hardware begin guide, enjoy it! part 1](https://img.youtube.com/vi/mbbNnGVcdi4/0.jpg)](https://www.youtube.com/embed/mbbNnGVcdi4?vq=hd1080&autoplay=1 "A hardware begin guide, enjoy it! part 1")
 
 [![A hardware begin guide, enjoy it! part 2 ](https://img.youtube.com/vi/-aC0duCdudE/0.jpg)](https://www.youtube.com/embed/-aC0duCdudE?vq=hd1080&autoplay=1 "A hardware begin guide, enjoy it! part 2 ")
 
@@ -12,8 +12,9 @@ A hardware begin guide for Front-End developer, enjoy it!
 
 - [x] Real-time video camera.
 - [x] Control of driving though web socket.
-- [ ] Speech recognition.
-- [ ] Image identification.
+- [x] Speech recognition.
+- [x] Image identification.
+- [ ] Obstacle avoidance.
 
 ## HARDWARE
 
@@ -84,8 +85,10 @@ Then head to http://localhost:8000 in your browser.
 ### AUTHORS
 
 - [wanghaixu]() - UI Design
+- [baogui]() - Harderware Design
 - [leecade]() - Coding
 - [dingrui]() - Speech recognition
 - [liyue]() - Image identification
 - [lihao]() - Appearance Design
 - [weina]() - Scene Design
+- [lihao]() - Spokesperson
