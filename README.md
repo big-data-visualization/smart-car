@@ -85,6 +85,7 @@ Then head to http://localhost:8000 in your browser.
 ### AUTHORS
 
 - [wanghaixu]() - UI Design
+- [zhangbo]() - Network & Shopping
 - [baogui]() - Harderware Design
 - [leecade]() - Coding
 - [dingrui]() - Speech recognition
