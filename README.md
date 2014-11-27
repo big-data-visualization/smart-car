@@ -4,6 +4,10 @@ A hardware begin guide for Front-End developer, enjoy it!
 
 ![](https://raw.githubusercontent.com/big-data-visualization/smart-car/master/assets/photo.jpg)
 
+[![A hardware begin guide, enjoy it! part 1](https://img.youtube.com/vi/mbbNnGVcdi4/0.jpg)](https://www.youtube.com/watch?v=mbbNnGVcdi4 "A hardware begin guide, enjoy it! part 1")
+
+[![A hardware begin guide, enjoy it! part 2 ](https://img.youtube.com/vi/-aC0duCdudE/0.jpg)](https://www.youtube.com/embed/-aC0duCdudE?vq=hd1080&autoplay=1 "A hardware begin guide, enjoy it! part 2 ")
+
 ## FEAUTRUES
 
 - [x] Real-time video camera.
