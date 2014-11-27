@@ -84,10 +84,10 @@ Then head to http://localhost:8000 in your browser.
 
 ### AUTHORS
 
-- [wanghaixu]() - UI Design
+- [Kevin]() - UI Design
 - [zhangbo]() - Network & Shopping
 - [baogui]() - Harderware Design
-- [leecade]() - Coding
+- [G Freeman](https://github.com/leecade) - Coding
 - [dingrui]() - Speech recognition
 - [liyue]() - Image identification
 - [lihao]() - Appearance Design
