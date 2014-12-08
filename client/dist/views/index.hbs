@@ -11,10 +11,10 @@
         <a class="logo_front" href="/"></a>
     </div>
 
-    <div style=" position: absolute; top: 0; left: 100px">
+    <div id="testShoutWrap" style="display:none; position: absolute; top: 0; left: 100px; z-index: 999;">
 	<form id="testShout">
         <!--<input id="testShoutInput" type="text" value='{"type": "f", "content": "/home/t1/smart-car/data/cry.wav"}'>-->
-        <input id="testShoutInput" type="text" value='快跟我说话,人家好寂寞' style="height: 30px; line-height:30px;">
+        <input id="testShoutInput" type="text" value='快跟我说话,人家好寂寞' style="height: 30px; line-height:30px; width: 800px;">
         <button type="submit" id="testShoutBtn" style="width: 80px; height:30px; line-height:30px;">PLAY</button>
 	</form>
     </div>
@@ -27,8 +27,7 @@
 
     <div class="camre">
         {{!-- <img src="" alt="" width="898" height="399"> --}}
-        <canvas id="myCanvas" style="width: 400px; height: 500px;"></canvas>
-        <span class="time light-text">2014.11.19  20:02:03</span>
+        <canvas id="myCanvas" style="width: 898px; height: 413px; margin: 10px;" width="898" height="399"></canvas> <span class="time light-text">2014.11.19  20:02:03</span>
     </div>
 
     <div id="joystick" class="ctrl_wrap">

@@ -48,10 +48,10 @@ board.on('ready', function() {
   network(io)
 })
 
-// network(io)
+//network(io)
 
 server.listen(conf.port, function() {
-  console.log("web server: listening on", conf.port)
+    /*console.log("web server: listening on", conf.port)*/
 })
 
 

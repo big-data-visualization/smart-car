@@ -8,17 +8,22 @@ var development = {
         , 'b': [6, 7]
     }*/
     pins: {}
-    , 'speed': 100
+    , 'speed': 10000
   }
   , audio: {
     'cmd': 'cd /home/t1/yuyin/linuxEASR-new/ && ./linuxEASR cfg.txt'
   }
   , shout: {
     'cmd': '/bin/sh ' + path.join(__dirname, '../service/shout.sh')
-  },
+  }
 
-  servo: {
+  , servo: {
     pins: 10
+  }
+
+  , camera: {
+    'cmd': 'python'
+    , 'params': ['/home/t1/face_recgonise/facedetect.py', '--cascade=/home/t1/face_recgonise/face.xml', '0']
   }
 }
 

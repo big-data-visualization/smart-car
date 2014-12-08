@@ -1,5 +1,7 @@
 !function(WIN, io) {
 
+    /\?123$/.test(location.href) && (document.querySelector("#testShoutWrap").style.display = "block")
+
     // active `active` for mobile
     document.addEventListener('touchstart', function(){
     }, false);
@@ -44,14 +46,11 @@
         
     })
 
-
-
     var canvas = document.getElementById("myCanvas");
     var context = canvas.getContext("2d");
     socket.on('camera', function(data) {
         if(!data || !data.base64) return
-        var image = new Image();
-        console.log(data.base64)    
+        var image = new Image()
         image.onload = function () { 
             context.clearRect(0, 0, canvas.width, canvas.height); 
             context.drawImage(image, 0, 0, canvas.width, canvas.height); 
