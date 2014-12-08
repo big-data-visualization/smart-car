@@ -5,7 +5,7 @@ var preConfig = five.Motor.SHIELD_CONFIGS.ADAFRUIT_V1
 
 var motors = {
   a: new five.Motor(conf.motors.pins['a'] || preConfig.M1)
-  , b: new five.Motor(conf.motors.pins['b'] || preConfig.M2)
+  , b: new five.Motor(conf.motors.pins['b'] || preConfig.M4)
 }
 
 // 1 ~ 9
@@ -14,6 +14,11 @@ var scaleSpeed = function(ch) {
     ? five.Fn.scale(ch, 1, 9, 0, 255)
     : conf.motors.speed
 }
+
+global.board.repl.inject({
+   motors: motors,
+   led: new five.Led(13)
+})
 
 module.exports = {
   'stop': function() {
@@ -24,26 +29,26 @@ module.exports = {
   , 'top': function(ch) {
     console.log('top')
     ch = scaleSpeed(ch)
-    motors.a.rev(ch)
+    motors.a.fwd(ch)
     motors.b.fwd(ch)
   }
   , 'bottom': function(ch) {
     console.log('bottom')
     ch = scaleSpeed(ch)
-    motors.a.fwd(ch)
+    motors.a.rev(ch)
     motors.b.rev(ch)
   }
   , 'right': function(ch) {
     console.log('right')
     ch = scaleSpeed(ch)
     motors.a.fwd(ch)
-    motors.b.fwd(ch)
+    motors.b.rev(ch)
   }
   , 'left': function(ch) {
     console.log('left')
     ch = scaleSpeed(ch)
     motors.a.rev(ch)
-    motors.b.rev(ch)
+    motors.b.fwd(ch)
   }
 }
 

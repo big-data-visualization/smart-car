@@ -5,73 +5,70 @@ module.exports = function(io) {
   var hardwareConf = require('../config')('hardware')
   var motors = require('../models/motors')
   var servo = require('../models/servo')
+  var camera = require('../models/camera')
   
   // var audio = require('../models/audio')
   var shout = require('../models/shout')
+  var shoutAction = require('../models/shoutAction')
 
+  var userConnects = []
+  var chatRequest = null
 
-
-  // pip camera to web
-  var spawn = require('child_process').spawn
-  var camera = spawn('python', ['/home/t1/face_recgonise/facedetect.py', '--cascade=/home/t1/face_recgonise/face.xml', '0'])
-
+  // pipe camera
+  
   camera.stdout.on('data', function (data) {
-    global.socket && global.socket.emit('camera', {
-      base64: data + ''
+    data && userConnects.forEach(function(conn) {
+      conn && conn.emit('camera', {
+        base64: data + ''
+      })
     })
-    // console.log('stdout: ==============' + data + '=========');
-  });
+})
 
-  camera.stderr.on('data', function (data) {
-      console.log('stderr: ' + data);
-      camera.kill()
-  });
-
-  camera.on('close', function (code) {
-    console.log('child process exited with code ' + code);
-  });
 
   io.on('connection', function(socket) {
-    global.socket = socket
+
+    userConnects.push(socket)
 
     socket.monitor('connected', Date.now())
 
-    var request = null
-
     socket.on('shout', function(data) {
+        console.log(data);
+        if(data.content == '123'){
+            shout.play({
+                type: "f",
+                content: '/home/t1/smart-car/data/manong.wav' 
+            })
+            return;
+        }
+
+        var flag = data.content.substring(0, 1);
+        if(flag == '@'){
+            shout.play({
+                type: "t",
+                content: data.content
+            })
+            return;
+        }
 
     	var url = 'http://api.mrtimo.com/Simsimi.ashx?parm=' + encodeURIComponent(data.content)
 
-      // cancel the last request
-      request && request.destroy()
+      // cancel the last chatRequest
+      // chatRequest && chatRequest.destroy()
 
-    	request = http.get(url, function(res) {
+    	chatRequest = http.get(url, function(res) {
     		var text = ''
     		res.on('data', function(chunk) {
       		text += chunk
     		})
     		res.on('end', function() {
-      		console.log(text);
-			
-			var map = [
-				{
-					'kw' : '前进',
-					'cb' : function(){
-						motors.top();
-					}
-				},{
-					'kw' : '前进',
-					'cb' : function(){
-						motors.top();
-					}
-				}
-			];
-			
-			
-          shout.play({
-            type: "t",
-            content: text
-          })
+                var isHandled = shoutAction.actions(data.content);
+                if(!isHandled){
+                    shout.play({
+                        type: "t",
+                        content: text
+                    })
+                }
+
     		})
     	})
     })

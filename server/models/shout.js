@@ -6,8 +6,11 @@ var status = false
 
 module.exports = {
     play: function(data) {
-        console.log(shout + ' -' + data.type + ' ' + data.content.replace(/点击.*$/,""))
-        shouter = exec(shout + ' -' + data.type + ' ' + data.content.replace(/点击.*$/,""))
+        var content = data.content;
+        content = content.replace(/点击.*$/,"");
+        content = content.replace("提莫队长", "大数据机器人");
+        console.log(shout + ' -' + data.type + ' ' + content)
+        shouter = exec(shout + ' -' + data.type + ' ' + content)
     status = true
     shouter.on('close', function (code) {
       //console.log('child process exited with code ' + code);
