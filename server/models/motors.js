@@ -6,6 +6,8 @@ var preConfig = five.Motor.SHIELD_CONFIGS.ADAFRUIT_V1
 var motors = {
   a: new five.Motor(conf.motors.pins['a'] || preConfig.M1)
   , b: new five.Motor(conf.motors.pins['b'] || preConfig.M4)
+  , c: new five.Motor(conf.motors.pins['c'] || preConfig.M2)
+  , d: new five.Motor(conf.motors.pins['d'] || preConfig.M3)
 }
 
 // 1 ~ 9

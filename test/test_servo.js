@@ -6,9 +6,7 @@ five.Board().on("ready", function() {
   // Initialize the servo
  var servo = new five.Servo({pin:2,
 type: "continuous"
-}
-
-);
+} );
 
   // Servo alternate constructor with options
   /*
@@ -79,5 +77,6 @@ type: "continuous"
   // }
   //
   //servo.sweep();
-servo.cw(0.5);
+  /*servo.cw(0.5);*/
+servo.cw(1);
 });

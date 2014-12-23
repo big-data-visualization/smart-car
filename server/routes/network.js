@@ -4,8 +4,9 @@ module.exports = function(io) {
 
   var hardwareConf = require('../config')('hardware')
   var motors = require('../models/motors')
+  /*setTimeout(function(){*/
   var servo = require('../models/servo')
-  var camera = require('../models/camera')
+      /*},2000);*/
   
   // var audio = require('../models/audio')
   var shout = require('../models/shout')
@@ -15,14 +16,56 @@ module.exports = function(io) {
   var chatRequest = null
 
   // pipe camera
-  
+  //old camera
+  var camera = require('../models/camera')
   camera.stdout.on('data', function (data) {
-    data && userConnects.forEach(function(conn) {
-      conn && conn.emit('camera', {
-        base64: data + ''
-      })
-    })
-})
+      /*console.log(data+'')*/
+      setTimeout(function(){
+          data && userConnects.forEach(function(conn) {
+              conn && conn.emit('camera', {
+                  base64: data + ''
+              })
+          })
+      },100)
+  })
+  /*var net = require('net');*/
+  /*var server = net.createServer(function(c) { //'connection' listener*/
+  /*console.log('server connected');*/
+  /*c.on('end', function() {*/
+  /*console.log('server disconnected');*/
+  /*});*/
+  /*c.write('hello\r\n');*/
+  /*c.pipe(c);*/
+  /*});*/
+  /*server.on('close',function(){*/
+  /*fs = require('fs');*/
+  /*fs.unlinkSync('/home/t1/echo.sock');*/
+  /*});*/
+  /*server.listen(8124, function() {*/
+  /*var camera = require('../models/camera')*/
+  /*camera.stdout.on('data', function (data) {*/
+  /*console.log(data+'')*/
+  /*})*/
+  /*server.on('connection',function(socket){*/
+  /*socket.on('data', function(data) {*/
+  /*console.log('jsrecv'+data+'');*/
+  /*userConnects.forEach(function(conn) {*/
+  /*conn && conn.emit('camera', {*/
+  /*base64: data + ''*/
+  /*})*/
+  /*})*/
+  /*socket.write('jssend');*/
+  /*});*/
+  /*socket.on('error', function(data) {*/
+  /*console.log(data+'');*/
+  /*userConnects.forEach(function(conn) {*/
+  /*conn && conn.emit('camera', {*/
+  /*base64: data + ''*/
+  /*})*/
+  /*})*/
+  /*});*/
+  /*});*/
+  /*});*/
 
 
   io.on('connection', function(socket) {

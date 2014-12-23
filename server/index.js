@@ -50,7 +50,7 @@ var ready = false;
 
 board.on("ready", function() {
 
-var speed, commands, motors;
+  var speed, commands, motors,servo;
 
   speed = 100;
   commands = null;
@@ -59,9 +59,6 @@ var speed, commands, motors;
     b: new five.Motor([6, 7])
   };
 
-  this.repl.inject({
-    motors: motors
-  });
 
   function controller(ch, key) {
     if (key) {
@@ -111,16 +108,30 @@ var speed, commands, motors;
 	if(ready) return;
 	ready = true;
 
-	var led = new five.Led({
-    		pin: 13
-  	});
+    /*var led = new five.Led({*/
+    /*pin: 13*/
+    /*});*/
 
-	led.on();
+    /*led.on();*/
 
 
-    	this.repl.inject({
-		led: led
-    	});
+    /*this.repl.inject({*/
+    /*led: led*/
+    /*});*/
+    /*var that =this;*/
+    /*setTimeout(function(){*/
+        servo = new five.Servo({
+            pin:2,
+            /*type: "standard",*/
+            type: "continuous",
+            startAt: 90
+        });
+        /*this.repl.inject({*/
+        /*motors: motors,*/
+        /*servo: servo*/
+        /*});*/
+        servo.cw(1);
+        /*},1000);*/
 
 	io.on('connection', function(socket){
 

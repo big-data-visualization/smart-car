@@ -18,12 +18,12 @@ var development = {
   }
 
   , servo: {
-    pins: 10
+      /*pins: 2*/
   }
 
   , camera: {
     'cmd': 'python'
-    , 'params': ['/home/t1/face_recgonise/facedetect.py', '--cascade=/home/t1/face_recgonise/face.xml', '0']
+    , 'params': ['/home/t1/face_recgonise/facedetect.py', '-c /home/t1/face_recgonise/face.xml', '0']
   }
 }
 

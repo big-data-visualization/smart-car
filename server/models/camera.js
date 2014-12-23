@@ -12,8 +12,8 @@ var camera = spawn(conf.camera.cmd, conf.camera.params)
 });*/
 
 camera.stderr.on('data', function (data) {
-    // console.log('stderr: ' + data);
-    camera.kill()
+    console.log('stderr: ' + data);
+    /*camera.kill()*/
 });
 
 camera.on('close', function (code) {
