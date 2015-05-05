@@ -86,7 +86,7 @@ Then head to http://localhost:8000 in your browser.
 
 - [Kevin]() - UI Design
 - [zhangbo]() - Network & Shopping
-- [baogui]() - Harderware Design
+- [lubaogui]() - Harderware Design
 - [G Freeman](https://github.com/leecade) - Coding
 - [dingrui]() - Speech recognition
 - [liyue]() - Image identification
